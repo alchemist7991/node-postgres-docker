@@ -2,8 +2,6 @@ const express = require('express');
 const morgan = require('morgan');
 const app = express();
 
-const db = require('./utils/db')
-
 const PORT = process.env.PORT || 8000
 app.use(morgan('dev'));
 app.use(express.json());

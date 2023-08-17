@@ -1,11 +1,15 @@
-const db = require('../utils/db')
+const db = require('../utils/db');
 
-;(async () => {
+(async () => {
   try {
     await db.schema.dropTableIfExists('users')
     await db.schema.withSchema('public').createTable('users', (table) => {
-      table.increments()
-      table.string('name')
+      table.increments().primary()
+      table.string('name').notNullable()
+      table.string('email').unique()
+      table.string('password').notNullable()
+      table.string('phone')
+      table.timestamps(true, true)
     })
     console.log('Created users table!')
     process.exit(0)
@@ -13,4 +17,4 @@ const db = require('../utils/db')
     console.log(err)
     process.exit(1)
   }
-})()
+})();

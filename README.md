@@ -15,6 +15,7 @@ Sample Porject on node js and postgres using docker
 `sudo docker volume ls -q | xargs sudo docker volume rm`
 
 ```
+docker rm -f <container id> # remote a container
 docker ps -a # list of all running/stopped/exited containers
 docker images -a # list of images
 docker volume ls # list of volumes
